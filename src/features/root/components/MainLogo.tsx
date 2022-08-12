@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 const animation = keyframes`
@@ -22,9 +21,8 @@ const ImageBlock = styled.img`
   animation: ${animation} 5s linear infinite;
 `;
 
-interface MainLogoProps {
-  children?: ReactNode;
-}
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface MainLogoProps {}
 
 export function MainLogo(_: MainLogoProps) {
   return (

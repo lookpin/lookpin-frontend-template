@@ -17,7 +17,10 @@
     "lint:fix": "eslint ./src --fix",
     "cli": "ts-fe-cli",
     "test": "vitest run",
-    "test:watch": "vitest watch"
+    "test:watch": "vitest watch",
+    "sb": "start-storybook -p 6006",
+    "build:sb": "build-storybook",
+    "serve:sb": "npx http-server ./storybook-static -o"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.4",
@@ -31,6 +34,13 @@
     "tslib": "^2.4.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.18.10",
+    "@storybook/addon-actions": "^6.5.10",
+    "@storybook/addon-essentials": "^6.5.10",
+    "@storybook/addon-links": "^6.5.10",
+    "@storybook/builder-vite": "^0.2.2",
+    "@storybook/react": "^6.5.10",
+    "@storybook/testing-library": "^0.0.13",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
     "@types/node": "^18.7.2",
@@ -43,6 +53,7 @@
     "@typescript-eslint/parser": "^5.33.0",
     "@vitejs/plugin-legacy": "^2.0.1",
     "@vitejs/plugin-react": "^2.0.1",
+    "babel-loader": "^8.2.5",
     "env-cmd": "^10.1.0",
     "eslint": "^8.21.0",
     "eslint-config-prettier": "^8.5.0",
