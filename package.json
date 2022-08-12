@@ -1,0 +1,36 @@
+{
+  "name": "react-new-template",
+  "version": "0.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=16.14.0"
+  },
+  "scripts": {},
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.33.0",
+    "@typescript-eslint/parser": "^5.33.0",
+    "eslint": "^8.21.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-storybook": "^0.6.4",
+    "prettier": "^2.7.1",
+    "ts-fe-cli": "^0.3.0",
+    "typescript": "^4.7.4"
+  },
+  "author": "",
+  "license": "ISC",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

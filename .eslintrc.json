@@ -1,0 +1,92 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "plugins": ["react", "react-hooks", "@typescript-eslint", "import"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "rules": {
+    "indent": ["error", 2],
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
+    "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1 }],
+    "no-use-before-define": ["error"],
+    "react/react-in-jsx-scope": "off",
+    "react/self-closing-comp": [
+      "error",
+      {
+        "component": true,
+        "html": true
+      }
+    ],
+    "explicit-module-boundary-types": "off",
+    "arrow-body-style": ["error", "as-needed"],
+    "react/prop-types": "off",
+    "no-param-reassign": ["error", { "props": false }],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin", // Built-in types are first
+          "external",
+          "internal",
+          ["sibling", "parent"], // Then sibling and parent types. They can be mingled together
+          "index", // Then the index file
+          "object"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "builtin",
+            "position": "before"
+          },
+          {
+            "pattern": "@common/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "@core/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "@shared/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "@features/**",
+            "group": "internal",
+            "position": "after"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["builtin"]
+      }
+    ],
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { "argsIgnorePattern": "^_" }
+    ],
+    "@typescript-eslint/no-empty-interface": [
+      "error",
+      {
+        "allowSingleExtends": true
+      }
+    ]
+  }
+}
