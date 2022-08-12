@@ -20,7 +20,9 @@
     "test:watch": "vitest watch",
     "sb": "start-storybook -p 6006",
     "build:sb": "build-storybook",
-    "serve:sb": "npx http-server ./storybook-static -o"
+    "serve:sb": "npx http-server ./storybook-static -o",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.4",
@@ -54,6 +56,7 @@
     "@vitejs/plugin-legacy": "^2.0.1",
     "@vitejs/plugin-react": "^2.0.1",
     "babel-loader": "^8.2.5",
+    "cypress": "^10.4.0",
     "env-cmd": "^10.1.0",
     "eslint": "^8.21.0",
     "eslint-config-prettier": "^8.5.0",

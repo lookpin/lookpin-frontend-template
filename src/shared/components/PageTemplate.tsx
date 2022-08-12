@@ -20,7 +20,7 @@ const ModeText = styled.div`
 export function PageTemplate({ children }: PageTemplateProps) {
   return (
     <Wrap>
-      <ModeText>{env.mode.toUpperCase()}</ModeText>
+      <ModeText data-cy="mode">{env.mode.toUpperCase()}</ModeText>
       <div>{children}</div>
     </Wrap>
   );
