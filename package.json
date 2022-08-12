@@ -5,10 +5,31 @@
   "engines": {
     "node": ">=16.14.0"
   },
-  "scripts": {},
+  "scripts": {
+    "start": "env-cmd -f vite",
+    "start:dev": "env-cmd -f .env.development vite",
+    "start:prod": "env-cmd -f .env.production vite",
+    "build": "tsc --noEmit && env-cmd -f vite build",
+    "build:dev": "tsc --noEmit && env-cmd -f env.development vite build",
+    "build:prod": "tsc --noEmit && env-cmd -f env.development vite build",
+    "serve": "vite preview",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix",
+    "cli": "ts-fe-cli"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
   "devDependencies": {
+    "@types/node": "^18.7.2",
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.33.0",
     "@typescript-eslint/parser": "^5.33.0",
+    "@vitejs/plugin-legacy": "^2.0.1",
+    "@vitejs/plugin-react": "^2.0.1",
+    "env-cmd": "^10.1.0",
     "eslint": "^8.21.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
@@ -16,8 +37,11 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.6.4",
     "prettier": "^2.7.1",
+    "terser": "^5.14.2",
     "ts-fe-cli": "^0.3.0",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "vite": "^3.0.6",
+    "vite-tsconfig-paths": "^3.5.0"
   },
   "author": "",
   "license": "ISC",
