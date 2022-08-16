@@ -17,9 +17,16 @@
     "plugin:react-hooks/recommended",
     "plugin:react/jsx-runtime",
     "plugin:@typescript-eslint/recommended",
+    "plugin:cypress/recommended",
     "prettier"
   ],
-  "plugins": ["react", "react-hooks", "@typescript-eslint", "import"],
+  "plugins": [
+    "react",
+    "react-hooks",
+    "@typescript-eslint",
+    "cypress",
+    "import"
+  ],
   "rules": {
     "indent": ["error", 2],
     "linebreak-style": ["error", "unix"],

@@ -1,13 +1,18 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { effRootMainImageLoad } from './rootMain.effect';
 
 interface RootMainState {
   loading: boolean;
+
+  image: string;
 }
 
-export function getInitRootMainState(loading = true) {
+export function getInitRootMainState(loading = false) {
   const result: RootMainState = {
     loading,
+
+    image: '',
   };
   return result;
 }
@@ -22,8 +27,15 @@ export const rootMainSlice = createSlice({
     // actions here..
   },
   extraReducers: (builder) => {
-    builder.addCase(effSomeAction.pending, (state) => {
+    builder.addCase(effRootMainImageLoad.pending, (state) => {
       state.loading = true;
+    });
+    builder.addCase(effRootMainImageLoad.rejected, (state) => {
+      state.loading = false;
+    });
+    builder.addCase(effRootMainImageLoad.fulfilled, (state, { payload }) => {
+      state.loading = false;
+      state.image = payload.image;
     });
   },
 });

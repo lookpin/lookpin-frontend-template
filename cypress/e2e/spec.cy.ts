@@ -4,5 +4,7 @@ describe('example spec', () => {
 
     cy.dataCy('mode').contains('DEVELOPMENT');
     cy.contains('Read me');
+
+    cy.dataCy('load-btn').click().get('[alt="loaded main image"');
   });
 });
