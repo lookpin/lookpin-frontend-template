@@ -254,9 +254,12 @@ npm run start:prod
 npm install && npm run build && npm run start:prod
 ```
 
-올바르게 실행되었다면 테스트도 실행해 봅니다.
+올바르게 실행되었다면 프로덕션 환경을 종료한 뒤 개발 서버를 실행, 테스트를 실행해 봅니다.
 
 ```shell
+# 개발 모드 실행
+npm run start:dev
+
 # 스토리북 실행
 npm run sb
 
@@ -264,7 +267,7 @@ npm run sb
 npm run test
 
 # cypress 실행
-## cypress는 로컬 환경이 구동된 상태여야 합니다.
+## cypress는 개발 환경이 구동된 상태여야 합니다.
 npm run cy:run
 ```
 
