@@ -1,1 +1,1 @@
-
+export * from './rootMain.model';
