@@ -43,7 +43,9 @@ export function MainImage({
       {image ? (
         <Button onClick={onResetClick}>Reset Image</Button>
       ) : (
-        <Button onClick={onLoadClick}>Load Image</Button>
+        <Button data-cy="load-btn" onClick={onLoadClick}>
+          Load Image
+        </Button>
       )}
     </Wrap>
   );
