@@ -8,12 +8,8 @@ interface ErrorRes {
   message: string;
 }
 
-function isAuthError(message: string) {
-  return /만료|로그인/gi.test(message);
-}
-
 function toErrorType(status = 0, message?: string): ErrorType {
-  if ((message && isAuthError(message)) || status === 401) {
+  if (status === 401) {
     return 'auth';
   }
   if (status >= 500) {
