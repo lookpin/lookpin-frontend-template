@@ -8,7 +8,7 @@ interface ErrorRes {
   message: string;
 }
 
-function toErrorType(status = 0, message?: string): ErrorType {
+function toErrorType(status = 0): ErrorType {
   if (status === 401) {
     return 'auth';
   }
