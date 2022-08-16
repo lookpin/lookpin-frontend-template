@@ -19,3 +19,14 @@ const Template: Story<StoryProps> = ({ ...props }) => <MainImage {...props} />;
 
 export const Default = Template.bind({});
 Default.args = {};
+
+export const Loading = Template.bind({});
+Loading.args = {
+  loading: true,
+};
+
+export const Image = Template.bind({});
+Image.args = {
+  image:
+    'https://images.unsplash.com/photo-1586227740560-8cf2732c1531?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop',
+};

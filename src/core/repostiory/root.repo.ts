@@ -1,6 +1,6 @@
 import { CommonRes, ImageMockupEntity } from '@core/entitiy/common.entitiy';
 
-const MOCKUP_RESPONSE = {
+export const MOCKUP_RESPONSE = {
   status: 'success',
   data: {
     image:
