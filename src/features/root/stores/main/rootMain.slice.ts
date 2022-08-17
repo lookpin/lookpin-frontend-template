@@ -6,6 +6,7 @@ interface RootMainState {
   loading: boolean;
 
   image: string;
+  categoryId: string;
 }
 
 export function getInitRootMainState(loading = false) {
@@ -13,6 +14,7 @@ export function getInitRootMainState(loading = false) {
     loading,
 
     image: '',
+    categoryId: '',
   };
   return result;
 }
@@ -36,6 +38,7 @@ export const rootMainSlice = createSlice({
     builder.addCase(effRootMainImageLoad.fulfilled, (state, { payload }) => {
       state.loading = false;
       state.image = payload.image;
+      state.categoryId = payload.categoryId;
     });
   },
 });
