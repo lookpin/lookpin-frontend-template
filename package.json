@@ -21,7 +21,7 @@
     "sb": "start-storybook -p 6006",
     "build:sb": "build-storybook",
     "serve:sb": "npx http-server ./storybook-static -o",
-    "cy:open": "cypress open",
+    "cy": "cypress open",
     "cy:run": "cypress run"
   },
   "dependencies": {
