@@ -42,7 +42,9 @@
   "React Use State Hooks": {
     "prefix": "!usestate",
     "description": "useState 훅스를 만든다.",
-    "body": ["const [${1:name}, set${1/(.*)/${0:/capitalize}/}] = useState${0}(${2});"]
+    "body": [
+      "const [${1:name}, set${1/(.*)/${0:/capitalize}/}] = useState${0}(${2});"
+    ]
   },
   "React Page Component": {
     "prefix": "!rpc",
@@ -50,7 +52,7 @@
     "body": [
       "import { useEffect } from 'react';",
       "import { useDispatch } from 'react-redux';",
-      "import { useQueryParams } from 'ts-fe-toolkit';",
+      "import { useQueryParams } from 'jordy';",
       "import { PageContainer } from '@shared/containers/PageContainer';",
       "import { AppDispatch } from '@common/store';",
       "import { ${3:ParamsModel} } from '../models';",

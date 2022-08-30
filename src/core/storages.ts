@@ -1,3 +1,3 @@
-import { createTokenProvider } from 'ts-fe-toolkit';
+import { createTokenProvider } from 'jordy';
 
 export const tokenProvider = createTokenProvider('local', 'auth');
