@@ -11,7 +11,7 @@ react-new-template(이하 템플릿)은 Lookpin(이하 사내)에서 사용 중�
 - React, Typescript, Vite
 - Redux Toolkit
 - Vitest, Storybook, Cypress
-- ts-fe-toolkit and ts-fe-cli
+- jordy and jordy-cli
 
 <br />
 
@@ -407,9 +407,9 @@ npm run test:watch
 
 ## 4. Appendix 📝
 
-### ts-fe-\*
+### jordy-\*
 
-[thesoncriel](https://github.com/thesoncriel/)님이 제작하신 ts-fe-toolkit과 ts-fe-cli 라이브러리는 룩핀 아키텍처 구성에 필요한 라이브러리입니다. 아직 문서화가 진행되지는 않았으나 레포지토리 주소를 올려 놓으니 작업에 참고바랍니다.
+[thesoncriel](https://github.com/thesoncriel/)님이 제작하신 jordy과 jordy-cli 라이브러리는 룩핀 아키텍처 구성에 필요한 라이브러리입니다. 아직 문서화가 진행되지는 않았으나 레포지토리 주소를 올려 놓으니 작업에 참고바랍니다.
 
-- [ts-fe-toolkit](https://github.com/thesoncriel/ts-fe-toolkit)
-- [ts-fe-cli](https://github.com/thesoncriel/ts-fe-cli)
+- [jordy](https://github.com/thesoncriel/jordy)
+- [jordy-cli](https://github.com/thesoncriel/jordy-cli)

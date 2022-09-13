@@ -12,7 +12,7 @@
       "  sel${TM_FILENAME_BASE/(.*)\\.selector/${1:/capitalize}/g},",
       "  state => state.loading",
       ");",
-      "",
+      ""
     ]
   },
   "Generate Single Selector": {
@@ -183,7 +183,7 @@
     "body": [
       ".addCase(${1:effAsyncAction}.${2|pending,fulfilled,rejected|}, (state, { meta, payload }) => {",
       "  ${0}",
-      "})",
+      "})"
     ]
   },
   "Generate Reducer File": {
@@ -197,14 +197,14 @@
       "",
       "export const ${TM_DIRECTORY/^.+\\/(.*)$/$1/}Reducer = combineReducers({",
       "  ${1:name}: ${TM_DIRECTORY/^.+\\/(.*)$/$1/}${1/(.*)/${0:/capitalize}/}Slice.reducer,",
-      "});",
+      "});"
     ]
   },
   "Add Single Reducer": {
     "prefix": "!reducer",
     "description": "기능 모듈의 리듀서 하나를 추가한다.",
     "body": [
-      "${1:name}: ${TM_DIRECTORY/^.+\\/(.*)$/$1/}${1/(.*)/${0:/capitalize}/}Slice${0}.reducer,",
+      "${1:name}: ${TM_DIRECTORY/^.+\\/(.*)$/$1/}${1/(.*)/${0:/capitalize}/}Slice${0}.reducer,"
     ]
   },
   "Generate Route File": {
@@ -212,14 +212,14 @@
     "description": "기능 모듈의 라우트 파일을 만든다.",
     "body": [
       "import React from 'react';",
-      "import { ModuleRouteModel } from 'ts-fe-toolkit';",
+      "import { ModuleRouteModel } from 'jordy';",
       "",
       "const ${1:CompPage} = React.lazy(() => import('./pages/${1}'));",
       "",
       "export const ${2:techBook}Routes: ModuleRouteModel[] = [",
       "  {",
       "    path: '/${2}',",
-      "    component: ${1},",
+      "    children: ${1},",
       "  }",
       "];"
     ]
@@ -233,7 +233,7 @@
       "  ",
       "  };",
       "  return result;",
-      "}",
+      "}"
     ]
   },
   "Generate Convert Function": {
@@ -245,7 +245,7 @@
       "  ",
       "  };",
       "  return result;",
-      "}",
+      "}"
     ]
   },
   "Generate Refine Function": {
@@ -257,7 +257,7 @@
       "  ",
       "  };",
       "  return result;",
-      "}",
+      "}"
     ]
   },
   "Generate React Context File": {

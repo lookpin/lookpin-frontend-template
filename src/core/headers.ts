@@ -1,25 +1,21 @@
-import { createHttpHeaderProvider, headerPipe } from 'ts-fe-toolkit';
+import { createHttpHeaderPipe, httpHeaderOperator } from 'jordy';
 import { tokenProvider } from './storages';
 
-function pipeAuthToken(header: Record<string, string>, token?: string) {
+function pipeAuthToken(header: Map<string, string>, token?: string) {
   if (!token) {
     throw new Error('로그인이 필요합니다.');
   }
 
-  header['Authorization'] = token;
-
-  return header;
+  return header.set('Authorization', token);
 }
 
-function pipeMyMeta(header: Record<string, string>) {
-  header['my-meta'] = 'kormelon';
-
-  return header;
+function pipeMyMeta(header: Map<string, string>) {
+  return header.set('my-meta', 'kormelon');
 }
 
 export function createAuthHeader() {
-  return createHttpHeaderProvider(tokenProvider)(
-    headerPipe.contentTypeJson,
+  return createHttpHeaderPipe(tokenProvider)(
+    httpHeaderOperator.contentTypeJson,
     pipeMyMeta,
     pipeAuthToken,
   );

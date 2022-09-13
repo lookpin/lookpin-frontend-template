@@ -14,6 +14,7 @@
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
     "plugin:react-hooks/recommended",
     "plugin:react/jsx-runtime",
     "plugin:@typescript-eslint/recommended",
@@ -25,7 +26,8 @@
     "react-hooks",
     "@typescript-eslint",
     "cypress",
-    "import"
+    "import",
+    "jsx-a11y"
   ],
   "rules": {
     "indent": ["error", 2],
