@@ -66,7 +66,7 @@
     "eslint-plugin-react": "^7.31.8",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.6.4",
-    "jordy-cli": "^0.4.1",
+    "jordy-cli": "^0.4.2",
     "jsdom": "^20.0.0",
     "prettier": "^2.7.1",
     "terser": "^5.15.0",
