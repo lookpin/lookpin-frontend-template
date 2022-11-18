@@ -15,7 +15,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["node", "vitest/globals", "cypress"],
+    "types": ["node", "vitest/globals"],
     "baseUrl": ".",
     "paths": {
       "@common/*": ["src/common/*"],
