@@ -1,6 +1,6 @@
 /* eslint-disable no-alert */
 import { ComponentProps } from 'react';
-import { Story, Meta, ArgTypes } from '@storybook/react';
+import { StoryFn, Meta, ArgTypes } from '@storybook/react';
 import { MainLogo } from '../MainLogo';
 
 interface StoryProps extends ComponentProps<typeof MainLogo> {}
@@ -15,7 +15,9 @@ export default {
   parameters: { actions: { argTypesRegex: '^on.*' } },
 } as Meta;
 
-const Template: Story<StoryProps> = ({ ...props }) => <MainLogo {...props} />;
+const Template: StoryFn<StoryProps> = ({ ...props }) => <MainLogo {...props} />;
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Default = {
+  render: Template,
+  args: {},
+};
