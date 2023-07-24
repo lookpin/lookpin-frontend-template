@@ -1,4 +1,4 @@
-interface AppEnviorment {
+interface AppEnvironment {
   /**
    * 개발 or 프로덕션 환경 여부
    *
@@ -21,7 +21,7 @@ interface AppEnviorment {
 
 const mode = import.meta.env.VITE_ENV || import.meta.env.MODE;
 
-export const env: AppEnviorment = {
+export const env: AppEnvironment = {
   mode,
   production: mode === 'production',
   development: mode === 'development',
