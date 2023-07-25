@@ -1,20 +1,5 @@
 {
-  "Generate Selector File": {
-    "prefix": "!selfile",
-    "description": "셀렉터 파일을 만든다.",
-    "body": [
-      "import { createSelector } from '@reduxjs/toolkit';",
-      "import { RootState } from '@common/store';",
-      "",
-      "const sel${TM_FILENAME_BASE/(.*)\\.selector/${1:/capitalize}/g} = (state: RootState) => state${2:.whatState};",
-      "",
-      "export const sel${TM_FILENAME_BASE/(.*)\\.selector/${1:/capitalize}/g}Loading = createSelector(",
-      "  sel${TM_FILENAME_BASE/(.*)\\.selector/${1:/capitalize}/g},",
-      "  state => state.loading",
-      ");",
-      ""
-    ]
-  },
+  
   "Generate Single Selector": {
     "prefix": "!selsingle",
     "description": "단일 셀렉터를 만든다.",
@@ -39,23 +24,7 @@
       ");"
     ]
   },
-  "Redux Toolkit - Generate Effect File": {
-    "prefix": "!efffile",
-    "description": "이펙트 파일을 만든다.",
-    "body": [
-      "import { createAsyncThunk } from '@reduxjs/toolkit';",
-      "import repo from '@core/repo';",
-      "",
-      "export const eff${TM_FILENAME_BASE/(.*)\\.effect/${1:/capitalize}/g}${2:WhatAction} = createAsyncThunk(",
-      "  '${TM_FILENAME_BASE/(.*)\\.effect/${1:/capitalize}/g}${2}',",
-      "  async () => {",
-      "    const result = await repo${10:.fetchSomeMethod};",
-      "",
-      "    return result;",
-      "  }",
-      ");"
-    ]
-  },
+  
   "Generate Redux Toolkit - Single Effect": {
     "prefix": "!effsingle",
     "description": "단일 이펙트 함수를 만든다.",
@@ -115,43 +84,7 @@
       ");"
     ]
   },
-  "Generate Redux Toolkit - Slice File": {
-    "prefix": "!slicefile",
-    "description": "리듀서와 액션이 포함된 슬라이스 파일을 만든다.",
-    "body": [
-      "/* eslint-disable no-param-reassign */",
-      "import { createSlice, PayloadAction } from '@reduxjs/toolkit';",
-      "",
-      "interface ${TM_FILENAME_BASE/(.*)\\.slice/${1:/capitalize}/g}State {",
-      "  loading: boolean;",
-      "}",
-      "",
-      "export function getInit${TM_FILENAME_BASE/(.*)\\.slice/${1:/capitalize}/g}State(loading = true) {",
-      "  const result: ${TM_FILENAME_BASE/(.*)\\.slice/${1:/capitalize}/g}State = {",
-      "    loading,",
-      "  };",
-      "  return result;",
-      "}",
-      "",
-      "export const ${TM_FILENAME_BASE/\\.slice//gi}Slice = createSlice({",
-      "  name: '${TM_FILENAME_BASE/\\.slice//gi}',",
-      "  initialState: getInit${TM_FILENAME_BASE/(.*)\\.slice/${1:/capitalize}/g}State(),",
-      "  reducers: {",
-      "    reset(_, { payload }: PayloadAction<boolean | undefined>) {",
-      "      return getInit${TM_FILENAME_BASE/(.*)\\.slice/${1:/capitalize}/g}State(payload);",
-      "    },",
-      "    // actions here.. $0",
-      "  },",
-      "  extraReducers: builder => {",
-      "    builder",
-      "      .addCase(effSomeAction.pending, state => {",
-      "        state.loading = true;",
-      "      })",
-      "    ;",
-      "  }",
-      "});"
-    ]
-  },
+  
   "Generate Redux Toolkit - Single Action Reducer": {
     "prefix": "!sliceaction",
     "description": "슬라이스 내 액션 리듀서 하나를 만든다.",
@@ -183,7 +116,7 @@
     "body": [
       ".addCase(${1:effAsyncAction}.${2|pending,fulfilled,rejected|}, (state, { meta, payload }) => {",
       "  ${0}",
-      "})"
+      "})",
     ]
   },
   "Generate Reducer File": {
@@ -197,14 +130,14 @@
       "",
       "export const ${TM_DIRECTORY/^.+\\/(.*)$/$1/}Reducer = combineReducers({",
       "  ${1:name}: ${TM_DIRECTORY/^.+\\/(.*)$/$1/}${1/(.*)/${0:/capitalize}/}Slice.reducer,",
-      "});"
+      "});",
     ]
   },
   "Add Single Reducer": {
     "prefix": "!reducer",
     "description": "기능 모듈의 리듀서 하나를 추가한다.",
     "body": [
-      "${1:name}: ${TM_DIRECTORY/^.+\\/(.*)$/$1/}${1/(.*)/${0:/capitalize}/}Slice${0}.reducer,"
+      "${1:name}: ${TM_DIRECTORY/^.+\\/(.*)$/$1/}${1/(.*)/${0:/capitalize}/}Slice${0}.reducer,",
     ]
   },
   "Generate Route File": {
@@ -212,14 +145,14 @@
     "description": "기능 모듈의 라우트 파일을 만든다.",
     "body": [
       "import React from 'react';",
-      "import { ModuleRouteModel } from 'jordy';",
+      "import { RouteObject } from 'react-router-dom';",
       "",
       "const ${1:CompPage} = React.lazy(() => import('./pages/${1}'));",
       "",
-      "export const ${2:techBook}Routes: ModuleRouteModel[] = [",
+      "export const ${2:techBook}Routes: RouteObject[] = [",
       "  {",
       "    path: '/${2}',",
-      "    children: ${1},",
+      "    Component: ${1},",
       "  }",
       "];"
     ]
@@ -233,7 +166,7 @@
       "  ",
       "  };",
       "  return result;",
-      "}"
+      "}",
     ]
   },
   "Generate Convert Function": {
@@ -245,7 +178,7 @@
       "  ",
       "  };",
       "  return result;",
-      "}"
+      "}",
     ]
   },
   "Generate Refine Function": {
@@ -257,7 +190,7 @@
       "  ",
       "  };",
       "  return result;",
-      "}"
+      "}",
     ]
   },
   "Generate React Context File": {
@@ -278,5 +211,45 @@
       "}",
       ""
     ]
-  }
+  },
+  "Generate Query Hooks": {
+    "prefix": "!queryhooks",
+    "description": "자체 캐싱 기능을 가지는 쿼리 훅스를 만든다.",
+    "body": [
+      "import { createQuery } from '@common/createQuery';",
+      "import repo from '@core/repo';",
+      "",
+      "export const ${TM_FILENAME_BASE} = createQuery<ResultModel, Payload>({",
+      "  fetcher: repo.some.fetch,",
+      "  key: '${TM_FILENAME_BASE/(.*)use/${1:/capitalize}/g}',",
+      "  subKeysFromParams: [] as (keyof ResultModel)[],",
+      "  cache: 'session',",
+      "  expired: 60,",
+      "  defaultData: null,",
+      "  parameterConverter: (params) => {",
+      "  },",
+      "  resultConverter: (result) => {",
+      "  },",
+      "});",
+      ""
+    ]
+  },
+  "Generate Entity Template": {
+    "prefix": "!entity",
+    "description": "파일명 기반의 간단한 엔티티 껍데기 만들기.",
+    "body": [
+      "export interface ${TM_FILENAME_BASE/(.*)\\.entity/${1:/capitalize}/g}${2}${3|Entity,Params,Dto|} {",
+      "  ${0}",
+      "}"
+    ]
+  },
+  "Generate Model Template": {
+    "prefix": "!model",
+    "description": "파일명 기반의 간단한 모델 껍데기 만들기.",
+    "body": [
+      "export interface ${TM_FILENAME_BASE/(.*)\\.model/${1:/capitalize}/g}${2}${3|Model,ParamsModel,Payload,Dto|} {",
+      "  ${0}",
+      "}"
+    ]
+  },
 }
