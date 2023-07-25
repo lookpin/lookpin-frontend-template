@@ -1,11 +1,9 @@
-import { ModuleRouteModel } from 'jordy';
-import { PageTemplate } from '@shared/components/PageTemplate';
-import { RootPage } from './pages/RootPage';
+import { RouteObject } from 'react-router-dom';
+import RootPage from './pages/RootPage';
 
-export const rootRoutes: ModuleRouteModel[] = [
+export const rootRoutes: RouteObject[] = [
   {
     path: '/',
-    wrap: PageTemplate,
-    element: RootPage,
+    Component: RootPage,
   },
 ];
