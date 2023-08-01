@@ -1,4 +1,4 @@
-export interface RootMainImageModel {
+export interface RootMainImageUiState {
   image: string;
   categoryId: string;
 }
