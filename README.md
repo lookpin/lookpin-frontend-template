@@ -75,7 +75,7 @@ react-new-template(이하 템플릿)은 Lookpin(이하 사내)에서 사용 중�
 | hooks       | 컴포넌트에서 쓰이는 훅스 모음             |             |
 | hoc         | 컴포넌트에서 쓰이는 High Order Component  |             |
 | constants   | 상수모음                                  |             |
-| models      | UI 모델, 컴포넌트 전용 타입 모음          |             |
+| uiStates    | UI 상태, UI 컴포넌트 전용 타입 모음       |             |
 | manipulates | 데이터 조작기 모음                        |             |
 | stores      | Redux Slice, Effect, Selector 등          | common 불가 |
 | queries     | Query Hooks 혹은 Mutation Hooks 모음      | common 불가 |
@@ -112,7 +112,7 @@ react-new-template(이하 템플릿)은 Lookpin(이하 사내)에서 사용 중�
 # hooks
 # hoc
 # constants
-# models
+# uiStates
 # manipulates
 ## ohMyLookpin.create.ts
 ## ohMyLookpin.convert.ts
@@ -144,7 +144,7 @@ react-new-template(이하 템플릿)은 Lookpin(이하 사내)에서 사용 중�
 ├── hooks
 ├── hoc
 ├── constants
-├── models
+├── uiStates
 ├── manipulates
 │   ├── ohMyLookpin.create.ts
 │   └── ohMyLookpin.convert.ts
@@ -169,7 +169,7 @@ shared 모듈은 만들어진 기능을 공유하는 곳이므로 다른 곳에�
 
 - 언제나 가능 👍
   - container 나 redux store 구성요소 (selector, effect)
-  - models
+  - uiStates
   - queries (query hooks, mutation hooks)
 - 가능하지만 가급적 지양 🤔
   - manipulates
@@ -294,14 +294,14 @@ npm run cy
 
 <br />
 
-### 3.2 UI Model & Convert
+### 3.2 UI State & Convert
 
-두번째 단계는 UI, 즉 **View에서 사용할 Model을 설정**하고 **UI Model -> Entity Convert 함수를 명명**합니다.
+두번째 단계는 UI, 즉 **View에서 사용할 타입(UI State)을 설정**하고 **UI State -> Entity Convert 함수를 명명**합니다.
 
-하지만 만약, Entity가 UI Model과 동일하다면 상기된 작업 없이 다음 단계를 진행해도 무방합니다.
+하지만 만약, Entity가 UI State과 동일하다면 상기된 작업 없이 다음 단계를 진행해도 무방합니다.
 
-1. UI Model 정의
-2. Server Entity -> UI Model Convert 함수 정의
+1. UI State 정의
+2. Server Entity -> UI State Convert 함수 정의
 
 본 템플릿에서도 간단히 구현된 사항이니 참고하되 별도로 설명이 필요하다면 다음을 읽어주세요.
 
@@ -316,23 +316,25 @@ interface RootMainImageEntity {
 
 해당 인터페이스를 보면 알 수 있듯 서버의 Entity는 snake_case로 작성되어 있습니다. 반면 자바스크립트의 컨벤션은 camelCase입니다. 우리의 UI는 타입스크립트로 작성됐으며 자연스레 camelCase를 따릅니다.
 
-사내에서는 Entity의 정의를 UI에서 사용하기 부적합하다 판단되면 UI에서 사용할 Model을 선언한 뒤 Entity -> Model Convert 함수를 정의합니다.
+사내에서는 Entity의 정의를 UI에서 사용하기 부적합하다 판단되면 UI에서 사용할 UI State 를 선언한 뒤 Entity -> Ui State Convert 함수를 정의합니다.
 
 ```ts
-// UI에서 사용할 Model
-// 위치 features/root/models/rootMain.model.ts
-interface RootMainImageModel {
+// UI에서 사용할 자료
+// 위치 features/root/uiStates/rootMain.uiState.ts
+interface RootMainImageUiState {
   image: string;
   categoryId: string;
 }
 ```
 
-이제 Entity를 Model로 변경할 수 있는 헬퍼 함수를 정의 합니다. 현재 사내에서는 이러한 헬퍼 함수를 **convert 함수**라 정의합니다.
+이제 Entity를 UI State 로 변경할 수 있는 헬퍼 함수를 정의 합니다. 현재 사내에서는 이러한 헬퍼 함수를 **convert 함수**라 정의합니다.
 
 ```ts
-// Server Entity -> UI Model 컨버터
+// Server Entity -> UI State 컨버터
 // 위치 features/root/manipulates/rootMain.convert.ts
-function toRootMainImageModel(entity: RootMainImageEntity): RootMainImageModel {
+function toRootMainImageUiState(
+  entity: RootMainImageEntity,
+): RootMainImageUiState {
   return {
     image: entity.image,
     categoryId: entity.category_id,
@@ -340,7 +342,7 @@ function toRootMainImageModel(entity: RootMainImageEntity): RootMainImageModel {
 }
 ```
 
-UI Model에서 서버로 요청을 보낼 시에도 인터페이스가 상이하다면 convert 함수를 정의하여 사용하도록 합니다. 매커니즘은 동일하므로 설명은 생략합니다.
+UI State에서 서버로 요청을 보낼 시에도 인터페이스가 상이하다면 convert 함수를 정의하여 사용하도록 합니다. 매커니즘은 동일하므로 설명은 생략합니다.
 
 > 위 예제는 지면 관계상, 단순히 표기법 변경만을 언급했습니다.
 > 다만, 실제 업무에서는 때에 따라 복잡한 스키마를 사용하며, UI를 위해 단순화 시켜줄 필요가 있습니다.

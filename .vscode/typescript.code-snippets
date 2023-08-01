@@ -173,7 +173,7 @@
     "prefix": "!convertdto",
     "description": "특정 타입에 대한 변환 함수를 만든다.",
     "body": [
-      "export function to${1:SomeDto}(${2|entity,params,model,item,payload,args,dto,data|}: ChangePlease) {",
+      "export function to${1:SomeDto}(${2|entity,params,uiState,item,payload,args,dto,data|}: ChangePlease) {",
       "  const ${0}result: ${1}${3} = {",
       "  ",
       "  };",
@@ -219,10 +219,10 @@
       "import { createQuery } from '@common/createQuery';",
       "import repo from '@core/repo';",
       "",
-      "export const ${TM_FILENAME_BASE} = createQuery<ResultModel, Payload>({",
+      "export const ${TM_FILENAME_BASE} = createQuery<ResultUiState, Payload>({",
       "  fetcher: repo.some.fetch,",
       "  key: '${TM_FILENAME_BASE/(.*)use/${1:/capitalize}/g}',",
-      "  subKeysFromParams: [] as (keyof ResultModel)[],",
+      "  subKeysFromParams: [] as (keyof ResultUiState)[],",
       "  cache: 'session',",
       "  expired: 60,",
       "  defaultData: null,",
@@ -243,11 +243,11 @@
       "}"
     ]
   },
-  "Generate Model Template": {
-    "prefix": "!model",
-    "description": "파일명 기반의 간단한 모델 껍데기 만들기.",
+  "Generate UI State Template": {
+    "prefix": "!uistate",
+    "description": "파일명 기반의 간단한 UI 상태 껍데기 만들기.",
     "body": [
-      "export interface ${TM_FILENAME_BASE/(.*)\\.model/${1:/capitalize}/g}${2}${3|Model,ParamsModel,Payload,Dto|} {",
+      "export interface ${TM_FILENAME_BASE/(.*)\\.uiState/${1:/capitalize}/g}${2}${3|UiState,UiParams,Payload,Dto|} {",
       "  ${0}",
       "}"
     ]

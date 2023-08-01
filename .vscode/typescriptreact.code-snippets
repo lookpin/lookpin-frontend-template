@@ -45,7 +45,7 @@
       "import { useQueryParams } from 'jordy';",
       "import { PageContainer } from '@shared/containers/PageContainer';",
       "import { AppDispatch } from '@common/store';",
-      "import { ${3:ParamsModel} } from '../models';",
+      "import { ${3:UiParams} } from '../uiStates';",
       "import { refine${3} } from '../manipulates';",
       "",
       "function $TM_FILENAME_BASE() {",
