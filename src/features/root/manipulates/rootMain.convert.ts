@@ -1,8 +1,8 @@
 import { RootMainImageEntity } from '@core/entitiy/root.entity';
-import { RootMainImageModel } from '../models';
+import { RootMainImageUiState } from '../uiStates';
 
-export function toRootMainImageModel(entity: RootMainImageEntity) {
-  const result: RootMainImageModel = {
+export function toRootMainImageUiState(entity: RootMainImageEntity) {
+  const result: RootMainImageUiState = {
     image: entity.image,
     categoryId: entity.category_id,
   };
